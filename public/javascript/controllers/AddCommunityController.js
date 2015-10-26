@@ -4,10 +4,16 @@
 	.controller('AddCommunityController', AddCommunityController);
 
 
-	function AddCommunityController(CommunityFactory) {
+	function AddCommunityController(CommunityFactory, $state) {
 		var vm = this;
+		vm.community = {};
 
-
+		vm.addCommunity = function(){
+		      CommunityFactory.addCommunity(vm.community).then(function(res) {
+										console.log(vm.community)
+		                $state.go('Home');
+		            });
+		          }
 
 	}
 })();

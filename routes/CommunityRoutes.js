@@ -4,7 +4,24 @@ var mongoose = require('mongoose');
 var Community = mongoose.model('Community');
 var jwt = require('express-jwt');
 
+router.param('id', function(req, res, next, id) {
+  Community.findOne({_id: id})
+  //.populate('recipes', 'body postedBy')
+  .exec(function(err, result) {
+    if(!result) {res.status(404).send({err: "Could not find that specific community."});}
+    req.community = result;
+    next();
+  });
+});
 
-
+router.post('/', function(req, res, next) {
+  var community = new Community(req.body);
+  //community.created = new Date();   //should we have community created date?
+  community.save(function(err, result) {
+    res.send(result);
+  });
+  // console.log("here");
+  // res.send();
+});
 
 module.exports = router;
