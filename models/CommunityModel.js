@@ -1,7 +1,8 @@
 var mongoose = require('mongoose');
 
-var CommmunitySchema = new mongoose.Schema({
-
+var CommunitySchema = new mongoose.Schema({
+ name: {required: true, type: String},
+ recipes: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}]
 });
 
-mongoose.model('Community', MovieSchema);
+mongoose.model('Community', CommunitySchema);
