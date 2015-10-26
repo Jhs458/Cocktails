@@ -9,15 +9,18 @@
 
 <body ng-controller='GlobalController as nav'>
 
+	<md-toolbar style="position:fixed; padding: 10px" class="md-tall">
+			<h2 class="md-toolbar-tools md-toolbar-tools-bottom"> Cocktail Community </h2>
+		<div layout="row" layout-align="space-around">
+			<md-button type='button' ui-sref='Home' class='md-flat md-accent'> Home </md-button>
+			<md-button type='button' ui-sref='AddCommunity' class='md-flat md-accent'> Add a Community </md-button>
+			<md-button type='button' ng-click='nav.logout()' ng-show='nav.status.username;' class='md-flat md-accent'> Logout </md-button>
+			<md-button type='button' ui-sref='RegLog' ng-show='!nav.status.username;' class='md-flat md-accent'> Login </md-button>
 
-
-
+		</div>
+	</md-toolbar>
 
 	<ui-view></ui-view>
-
-
-
-
 
 	<!-- Ext Libs -->
 	<script src="angular/angular.min.js"></script>

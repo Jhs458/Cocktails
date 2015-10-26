@@ -25,7 +25,7 @@ UserSchema.methods.createToken = function() {
    _id: this._id,
    username: this.username,
 
- }) //Add Passcode here
+ }, " "); //Add Passcode here
 };
 
 mongoose.model('User', UserSchema);

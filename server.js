@@ -4,9 +4,11 @@ var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
 var mongoose = require('mongoose');
-require('./models/RecipleModel');
+require('./models/RecipeModel');
 require('./models/CommunityModel');
 require('./models/User');
+
+mongoose.connect("mongodb://localhost/Cocktail");
 
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client
