@@ -1,3 +1,32 @@
 <div ng-controller="AddRecipeController as vm">
+  <div layout="row" layout-wrap>
+    <div flex="25">
+    </div>
+    <div flex="50" style="padding-top: 5em; text-align: center;">
+    <form  ng-submit="vm.createRecipe()">
+      <h1>Add Your Recipe</h1>
+      <label> Recipe Name: </label>
+      <input class="form-control" placeholder="Name..." ng-model="vm.recipe.name">
+      <br>
+      <button type="button" class="btn btn-default" ng-click="vm.recipe.ingredients.push({});">Add Ingredient</button>
+      <br>
+      <span ng-show="vm.message" style="color: red">{{vm.message}}</span>
+      <ul>
+        <li ng-repeat="a in vm.recipe.ingredients"><input class="form-control" style="width: 70%; display: inline-block;"
+          placeholder="Ingredient..." ng-model="vm.recipe.ingredients[$index].choice">
+          <input class="form-control" style="width: 20%; display: inline-block;"
+            placeholder="Amount..." ng-model="vm.recipe.ingredients[$index].amount">
 
+          <button type="button" class="btn btn-danger" ng-click="vm.recipe.ingredients.splice($index, 1)">X</button></li>
+      </ul>
+      <label>Instructions: </label>
+      <input type="text" style="height: 4em;" placeholder="Tell us how to make it..."ng-model="vm.recipe.instructions">
+      <div style="text-align: center;">
+        <button type="submit" class="btn btn-success" ng-disabled="!(vm.recipe.ingredients.length >= 1) || !vm.recipe.name">Submit</button>
+      </div>
+    </form>
+    </div>
+    <div flex="25">
+    </div>
+  </div>
 </div>
