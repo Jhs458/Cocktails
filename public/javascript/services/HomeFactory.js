@@ -24,6 +24,7 @@
 			return q.promise;
 		};
 
-return o;
+
+		return o;
 	}
 })();
