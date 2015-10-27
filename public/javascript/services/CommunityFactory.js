@@ -16,6 +16,23 @@
 			return q.promise;
 		};
 
+
+		o.getAllRecipes = function() {
+			var q = $q.defer();
+			$http.get('/api/recipe').then(function(res) {
+				q.resolve(res.data);
+			});
+			return q.promise;
+		};
+
+		o.deleteRecipe = function(id) {
+			var q = $q.defer();
+			$http.delete('/api/recipe/' + id).then(function(res) {
+				q.resolve();
+			});
+			return q.promise;
+		};
+
 		return o;
 	}
 })();

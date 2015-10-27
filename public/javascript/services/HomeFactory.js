@@ -24,6 +24,11 @@
 			return q.promise;
 		};
 
+
+
+
+
+
 		o.getAllCom = function() {
 			var q = $q.defer();
 			$http.get('/api/community').then(function(res) {
@@ -33,6 +38,7 @@
 			return q.promise;
 		};
 
-return o;
+
+		return o;
 	}
 })();

@@ -10,10 +10,9 @@
 
     vm.createRecipe = function() {
       HomeFactory.postRecipe(vm.recipe).then(function(res) {
-        $state.go('Home');
+        $state.go('ViewCommunity');
       }, function(res) {
         vm.recipe = res;
-        vm.message = "Please include at least 1 ingredient.";
       });
     };
 

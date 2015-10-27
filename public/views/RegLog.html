@@ -1,6 +1,6 @@
 <!-- <div ng-controller="GlobalController as vm"> -->
 
-<div style ="padding-top: 200px">
+<div style ="padding-top: 100px">
 <div ng-show="nav.isLogin">
   <form class="well container" ng-submit="nav.login()">
     <md-input-container>
@@ -12,7 +12,7 @@
       <input type="password" class="form-control" ng-model="nav.user.password">
     </md-input-container>
       <div style="text-align:center">
-        <md-button type="submit" class="btn btn-info">Submit</md-button>
+        <md-button type="submit" class="btn btn-info">Login</md-button>
         <md-button type="button" ng-click="nav.isLogin = false;" class="btn btn-primary">Register</md-button>
       </div>
   </form>
@@ -34,7 +34,7 @@
       <input type="password" class="form-control" ng-model="nav.user.password">
     </md-input-container>
       <div style="text-align:center">
-          <md-button type="submit" class="btn btn-info">Submit</md-button>
+          <md-button type="submit" class="btn btn-info">Register</md-button>
         <md-button type="button" ng-click="nav.isLogin = true;" class="btn btn-primary">Cancel</md-button>
       </div>
   </form>
