@@ -24,6 +24,15 @@
 			return q.promise;
 		};
 
+		o.getAllCom = function() {
+			var q = $q.defer();
+			$http.get('/api/community').then(function(res) {
+				//console.log(res)
+				q.resolve(res.data);
+			});
+			return q.promise;
+		};
+
 return o;
 	}
 })();

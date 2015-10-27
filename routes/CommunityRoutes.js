@@ -24,4 +24,10 @@ router.post('/', function(req, res, next) {
   // res.send();
 });
 
+router.get('/', function(req, res, next) {
+  Community.find({}, function(err, result) {
+    res.send(result);
+  });
+});
+
 module.exports = router;
