@@ -26,5 +26,13 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.delete('/:id', function(req, res, next) {
+  Recipe.remove({_id: req.params.id}, function(err, result) {
+      if(err) return next(err);
+      console.log(result);
+      res.send();
+  });
+});
+
 
 module.exports = router;
