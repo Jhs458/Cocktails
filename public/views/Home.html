@@ -1,7 +1,7 @@
 <div ng-controller="HomeController as vm">
 
 <div ng-repeat="a in vm.communities">
-  <md-button type="button" class="md-primary" ng-click="">{{a.name}}</md-button>
+  <md-button type="button" class="md-primary" ng-click="vm.goToCom(a._id)">{{a.name}}</md-button>
 </div>
 
 </div>

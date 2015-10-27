@@ -30,6 +30,12 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.get('/:id', function(req, res, next) {
+  Community.findOne({_id: req.params.id}, function(err, result) {
+    res.send(result);
+  });
+});
+
 
 
 module.exports = router;

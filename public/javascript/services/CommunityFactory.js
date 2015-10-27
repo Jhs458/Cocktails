@@ -10,7 +10,7 @@
 		o.addCommunity = function(com) {
 			var q = $q.defer();
 			$http.post('/api/community', com).then(function(res) {
-				console.log(res);
+				//console.log(res);
 				q.resolve(res.data);
 			});
 			return q.promise;

@@ -10,7 +10,7 @@
 			templateUrl: 'views/Home.html'
 		})
 		.state('AddRecipe',{
-			url: '/addrecipe',
+			url: '/addrecipe/:id',
 			templateUrl: 'views/AddRecipe.html'
 		})
 		.state('EditRecipe',{
@@ -22,7 +22,7 @@
 			templateUrl: 'views/AddCommunity.html'
 		})
 		.state('ViewCommunity',{
-			url: '/viewcommunity',
+			url: '/viewcommunity/:id',
 			templateUrl: 'views/ViewCommunity.html'
 		})
 		.state('RegLog',{

@@ -4,12 +4,13 @@
 	.controller('ViewCommunityController', ViewCommunityController);
 
 
-	function ViewCommunityController(CommunityFactory) {
+	function ViewCommunityController(CommunityFactory, $stateParams, $state) {
 		var vm = this;
 
 		CommunityFactory.getAllRecipes().then(function(res) {
+			// if($stateParams.id == res[i].community){
 			vm.recipes = res;
-			console.log(res);
+	// 	}
 		});
 
 		vm.deleteRecipe = function(recipe) {
@@ -17,6 +18,13 @@
 			vm.recipes.splice(vm.recipes.indexOf(recipe), 1);
 			});
 	};
+
+	vm.goToAddRecipe = function(){
+		// HomeFactory.goToCom($stateParams.id).then(function(res){
+			console.log($stateParams.id);
+			$state.go('AddRecipe', {id:$stateParams.id});
+		// })
+	}
 
 	}
 })();
