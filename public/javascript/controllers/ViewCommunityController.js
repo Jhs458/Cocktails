@@ -7,11 +7,13 @@
 	function ViewCommunityController(CommunityFactory, $stateParams, $state) {
 		var vm = this;
 
-		CommunityFactory.getAllRecipes().then(function(res) {
+if($stateParams.id){
+		CommunityFactory.getAllRecipes($stateParams.id).then(function(res) {
 			// if($stateParams.id == res[i].community){
 			vm.recipes = res;
 	// 	}
 		});
+}
 
 		vm.deleteRecipe = function(recipe) {
 		CommunityFactory.deleteRecipe(recipe._id).then(function() {
@@ -25,6 +27,7 @@
 			$state.go('AddRecipe', {id:$stateParams.id});
 		// })
 	}
+
 
 	}
 })();

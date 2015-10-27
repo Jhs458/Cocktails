@@ -15,7 +15,6 @@
 
 		vm.goToCom = function(xid){
 			HomeFactory.goToCom(xid).then(function(res){
-				// console.log(xid)
 				$state.go('ViewCommunity', {id:xid});
 			})
 		}

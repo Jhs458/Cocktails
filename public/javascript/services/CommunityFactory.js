@@ -17,9 +17,9 @@
 		};
 
 
-		o.getAllRecipes = function() {
+		o.getAllRecipes = function(id) {
 			var q = $q.defer();
-			$http.get('/api/recipe').then(function(res) {
+			$http.get('/api/recipe/' + id).then(function(res) {
 				q.resolve(res.data);
 			});
 			return q.promise;
@@ -32,6 +32,7 @@
 			});
 			return q.promise;
 		};
+
 
 		return o;
 	}

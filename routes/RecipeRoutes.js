@@ -16,16 +16,16 @@ router.post('/:comID', function(req, res, next) {
   });
 });
 
-router.get('/', function(req, res, next) {
-  Recipe
-  .find({})
-  // .select('topic createdBy')
-  // .populate('createdBy', 'username')
-  .exec(function(err, result) {
-    if(err) return next(err);
-    res.send(result);
-  });
-});
+// router.get('/', function(req, res, next) {
+//   Recipe
+//   .find({})
+//   // .select('topic createdBy')
+//   // .populate('createdBy', 'username')
+//   .exec(function(err, result) {
+//     if(err) return next(err);
+//     res.send(result);
+//   });
+// });
 
 router.delete('/:id', function(req, res, next) {
   Recipe.remove({_id: req.params.id}, function(err, result) {
@@ -35,13 +35,13 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
-// router.get('/:id', function(req, res, next){
-//   Recipe.find({community: req.params.id}, function(err, result){
-//     if(err) {return next(err);}
-//     if(!result) {return next({err: "Error finding recipe by community ID."});}
-//     res.send(result);
-//   })
-// });
+router.get('/:id', function(req, res, next){
+  Recipe.find({community: req.params.id}, function(err, result){
+    if(err) {return next(err);}
+    if(!result) {return next({err: "Error finding recipe by community ID."});}
+    res.send(result);
+  })
+});
 
 
 module.exports = router;
