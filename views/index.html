@@ -4,20 +4,34 @@
 	<title>Hard Recipes</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="/angular-material/angular-material.css" >
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.1.2/css/material-design-iconic-font.min.css">
 	<link rel="stylesheet" type="text/css" href="/css/site.css">
 </head>
 
-<body ng-controller='GlobalController as nav'>
+<body ng-controller='GlobalController as nav' ng-cloak>
 
-	<md-toolbar style="padding: 10px" class="md-tall">
-			<h2 class="md-toolbar-tools md-toolbar-tools-bottom"> Cocktail Community </h2>
-		<div layout="row" layout-align="space-around">
-			<md-button type='button' ui-sref='Home' class='md-flat md-accent'> Home </md-button>
-			<md-button type='button' ui-sref='AddCommunity' class='md-flat md-accent'> Add a Community </md-button>
-			<md-button type='button' ng-click='nav.logout()' ng-show='nav.status.username;' class='md-flat md-accent'> Logout </md-button>
-			<md-button type='button' ui-sref='RegLog' ng-show='!nav.status.username;' class='md-flat md-accent'> Login </md-button>
+	<md-toolbar style="padding : 5px; background-color: deepskyblue"  layout="row">
+
+		<section layout="row" flex layout-align="left" layout-wrap>
+			<md-button type="button" class="" ui-sref="Home"> Cocktail Community </md-button>
+			<md-button type="button" class="" ui-sref="AddCommunity" >Add a Community</md-button>
+		</section>
+
+		<section layout="row" flex layout-align="center top" layout-wrap>
+			<div class="list-group">
+<a class="list-group-item" href="https://www.facebook.com/pages/Cocktail/108043125883688?rf=110580302299152" target="_blank"><i class="zmdi zmdi-facebook zmdi-hc-fw"></i></a>
+<a class="list-group-item" href="https://instagram.com/cocktail_aficionado/" target="_blank"><i class="zmdi zmdi-instagram zmdi-hc-fw"></i></a>
+<a class="list-group-item" href="https://www.pinterest.com/AHLFM/cocktail-community-board/" target="_blank"><i class="zmdi zmdi-pinterest-box zmdi-hc-fw"></i></a>
+<a class="list-group-item" href="https://plus.google.com/communities/111916865321501232364" target="_blank"><i class="zmdi zmdi-google-plus zmdi-hc-fw"></i></a>
+<a class="list-group-item" href="https://twitter.com/bookofcocktails" target="_blank"><i class="zmdi zmdi-twitter zmdi-hc-fw"></i></a>
 
 		</div>
+		</section>
+		<section layout="row" flex="15" layout-align="right" layout-wrap >
+			<md-button type='button' class="" ng-click='nav.logout()' ng-show='nav.status.username;'> Logout </md-button>
+			<md-button type='button' class="" ui-sref='RegLog' ng-show='!nav.status.username;'> Login/Register </md-button>
+		</section>
+
 	</md-toolbar>
 
 	<ui-view></ui-view>
