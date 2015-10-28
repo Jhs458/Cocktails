@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 var port = process.env.PORT || 3000;
+var passport = require("passport");
 var mongoose = require('mongoose');
 require('./models/RecipeModel');
 require('./models/CommunityModel');

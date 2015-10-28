@@ -3,10 +3,14 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Recipe = mongoose.model('Recipe');
 var jwt = require('express-jwt');
+var auth = jwt({
+  userProperty: "payload", //req.payload._id in the Route
+  secret: "CoderCamps" //matches the secret in model
+   });
 
-router.post('/:comID', function(req, res, next) {
+router.post('/:comID', auth, function(req, res, next) {
   var recipe = new Recipe(req.body);
-  // recipe.createdBy = req.payload._id;
+  recipe.createdBy = req.payload._id;
   recipe.created = new Date();
   recipe.community = req.params.comID;
   recipe.save(function(err, result) {
@@ -27,7 +31,7 @@ router.post('/:comID', function(req, res, next) {
 //   });
 // });
 
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', auth, function(req, res, next) {
   Recipe.remove({_id: req.params.id}, function(err, result) {
       if(err) return next(err);
       console.log(result);
@@ -52,7 +56,7 @@ router.get('/edit/:id', function(req, res, next){
   });
 });
 
-router.put('/', function (req, res, next) {
+router.put('/', auth, function (req, res, next) {
   //Mongoose/Mongo method '.update' takes an object for the search as the first param
   //The second param is an object which is the info to update with
   // req.body.recipeEditted.id = req.body.recipeEditted._id;

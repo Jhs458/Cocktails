@@ -28,7 +28,8 @@
       <div layout-align="center center" flex="30" style="padding: 30px 0px 0px 100px;">
         <div id="recipeAdd">
           <h2>Have a Recipe to Contribute?</h2>
-          <md-button class="md-raised" ng-click="vm.goToAddRecipe()">Add!</md-button>
+          <md-button class="md-raised" ng-show ='!nav.status.username;' ui-sref='RegLog'> Login/Register </md-button>
+          <md-button class="md-raised" ng-show ='nav.status.username;' ng-click="vm.goToAddRecipe()">Add!</md-button>
         </div>
       </div>
 
