@@ -4,7 +4,7 @@
 	.factory('HomeFactory', HomeFactory);
 	function HomeFactory($http, $q) {
 		var o = {};
-		
+
 
 		o.postRecipe = function(recipe, comID) { //second param = comID
 			var q = $q.defer();

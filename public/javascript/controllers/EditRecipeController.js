@@ -4,10 +4,27 @@
 	.controller('EditRecipeController', EditRecipeController);
 
 
-	function EditRecipeController(HomeFactory) {
+	function EditRecipeController(CommunityFactory, $stateParams, $state) {
 		var vm = this;
+		vm.editRecipe = {};
+		vm.editRecipe.ingredients = [];
 
+		if($stateParams.id){
+				CommunityFactory.getOneRecipeToEdit($stateParams.id).then(function(res) {
+					vm.editRecipe = res;
+				});
+		}
 
+		vm.updateRecipe = function(edittedRecipe) {
+			console.log(edittedRecipe);
+			CommunityFactory.updateRecipe({recipeEditted: edittedRecipe}).then(function(res) {
+				$state.go('ViewCommunity', {id: edittedRecipe.community}, {location: true});
+			});
+		};
+
+		vm.goToViewComFromEdit = function(){
+				// $state.go('ViewCommunity');
+		};
 
 	}
 })();
