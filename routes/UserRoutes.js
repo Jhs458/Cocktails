@@ -9,7 +9,7 @@ router.post('/register', function(req, res, next) {
   user.setPassword(req.body.password);
   user.save(function(err, result) {
     if(err) return next(err);
-    res.send(result.createToken());
+  res.send(result.createToken());
   });
 });
 
