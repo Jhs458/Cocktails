@@ -20,4 +20,26 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
+router.get('/profile/:id', function(req, res, next){
+  Recipe.find({createdBy:req.params.id})
+  // .populate('createdBy', 'username')
+  .exec(function(err, result){
+    if(err) return next(err);
+    if(!result) return next('Could not find request');
+    res.send(result);
+  });
+});
+
+router.get('/profile/:id', function(req, res, next){
+  Community.find({createdBy:req.params.id})
+  // .populate('createdBy', 'username')
+  .exec(function(err, result){
+    if(err) return next(err);
+    if(!result) return next('Could not find request');
+    res.send(result);
+  });
+});
+
+
+
 module.exports = router;
