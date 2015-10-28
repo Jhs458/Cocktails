@@ -1,7 +1,10 @@
 <div ng-controller="ViewCommunityController as vm" ng-cloak>
   <md-content>
 
-    <md-subheader style="background-color: rgb(224, 224, 235); text-align: center;" class="md-no-sticky"><h1>Community</h1></md-subheader>
+    <div style="background-color: rgb(224, 224, 235)" layout="row">
+    <md-subheader flex style="background-color: rgb(224, 224, 235); text-align: center;" class="md-no-sticky"><h1>Community for all things {{vm.communities.name}} related</h1></md-subheader>
+    <md-button flex="3" type="button" style="text-align: right; min-width: 10px" ng-click="vm.deleteCommunity()">X</md-button>
+  </div>
 
     <div style="text-align:center; padding-top: 25px;">
       <md-button class="md-raised" ng-click="vm.goToAddRecipe()" style="font-size: 28px;">Add A Recipe!</md-button>

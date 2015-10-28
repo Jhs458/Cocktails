@@ -11,11 +11,14 @@
     Below you may create a community name and then you may go into that community to add recipes.
   </p>
 
-  <form ng-submit="vm.addCommunity()">
 
+
+  <form ng-submit="vm.addCommunity()" layout="row">
+
+<div flex="40">
       <md-input-container layout-padding>
           <label>Name...</label>
-          <input required ng-model="vm.community.name" style="width: 50%" />
+          <input required ng-model="vm.community.name" style="width: 100%" />
       </md-input-container>
     <br>
 
@@ -24,7 +27,21 @@
       <md-button type="submit" class="md-primary">Add Community</md-button>
       <md-button type="button" class="md-warn" ui-sref="Home">Cancel</md-button>
       </div>
+</div>
+
+
+      <md-input-container flex="30">
+        <label>Colors:</label>
+          <md-select ng-model="vm.community.color" >
+            <md-option style="background-color: {{color}}" ng-repeat="color in vm.colors">{{color}}</md-option>
+          </md-select>
+      </md-input-container>
+
+  
     </form>
+
+
+
 
 
 

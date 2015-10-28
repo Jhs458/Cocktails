@@ -33,6 +33,24 @@
 			return q.promise;
 		};
 
+		o.getSingleCom = function(id){
+			var q = $q.defer();
+			$http.get('/api/community/' + id).then(function(res) {
+				// console.log(res)
+				q.resolve(res.data);
+			});
+			return q.promise;
+		}
+
+		o.deleteCommunity = function(id){
+			// console.log(id.id)
+			var q = $q.defer();
+			$http.delete('/api/community/' + id.id).then(function(res) {
+				q.resolve();
+			});
+			return q.promise;
+		}
+
 
 		return o;
 	}
