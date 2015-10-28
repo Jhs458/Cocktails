@@ -1,4 +1,5 @@
 (function() {
+
   'use strict';
   angular.module('app')
     .factory('CommunityFactory', CommunityFactory);
@@ -42,6 +43,29 @@
       return q.promise;
     };
 
+
+		o.getOneRecipeToEdit = function(id) {
+			console.log(id);
+			var q = $q.defer();
+			$http.get('/api/recipe/edit/' + id).then(function(res) {
+				console.log(res);
+				q.resolve(res.data);
+				// console.log(res.data);
+
+			});
+			return q.promise;
+		};
+
+		o.updateRecipe = function(recipeObj) {
+			console.log(recipeObj);
+
+			var q = $q.defer();
+			$http.put('/api/recipe', recipeObj).then(function (res) {
+				q.resolve(res.data);
+			});
+			return q.promise;
+		};
     return o;
   }
+
 })();

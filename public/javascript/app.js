@@ -14,7 +14,7 @@
 			templateUrl: 'views/AddRecipe.html'
 		})
 		.state('EditRecipe',{
-			url: '/editrecipe',
+			url: '/editrecipe/:id',
 			templateUrl: 'views/EditRecipe.html'
 		})
 		.state('AddCommunity',{

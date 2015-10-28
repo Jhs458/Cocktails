@@ -21,6 +21,9 @@
       });
     };
 
+		vm.goToViewCom = function(){
+				$state.go('ViewCommunity', {id:$stateParams.id});
+		};
 
 	}
 })();
