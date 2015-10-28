@@ -22,9 +22,10 @@
 			});
 		};
 
-		vm.goToViewComFromEdit = function(){
-				// $state.go('ViewCommunity');
-		};
+		vm.goToViewComFromEdit = function(x){
+					$state.go('ViewCommunity', {id: x.community}, {location: true});
+			};
+		
 
 	}
 })();
