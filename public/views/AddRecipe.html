@@ -1,11 +1,9 @@
 <div ng-controller="AddRecipeController as vm"  ng-cloak>
+
+  <md-subheader style="background-color: rgb(224, 224, 235); text-align: center; width: 100%;" class="md-no-sticky"><h1>Add Recipe</h1></md-subheader>
+
   <div layout="row" layout-align="center center">
     <div flex="50">
-
-      <div style="background-color: rgb(224, 224, 235); height: 5em; text-align: center;">
-        <span style="font-size: 40px;">Create a Recipe:</span>
-      </div>
-
       <form name="userForm" ng-submit="vm.createRecipe()">
 
         <md-input-container layout-padding >
@@ -13,7 +11,7 @@
           <input required ng-model="vm.recipe.name"  />
         </md-input-container>
 
-        <div layout="row" ng-repeat="a in vm.recipe.ingredients">
+        <div layout="row" ng-repeat="a in vm.recipe.ingredients" style="padding-left:6px;">
           <md-input-container style="width:70%">
             <label>Ingredient...</label>
             <input required ng-model="vm.recipe.ingredients[$index].choice"/>
@@ -37,8 +35,13 @@
         <div style="text-align:center">
           <md-button type="submit" class="md-primary" ng-disabled="!(vm.recipe.ingredients.length >= 1) || !vm.recipe.name">Submit</md-button>
         </div>
-
       </form>
+
+      <div style="text-align: center; padding-top: 50px;">
+        <md-button class="md-raised" ng-click="vm.goToViewCom()">Back to community</md-button>
+      </div>
+
+
     </div>
   </div>
 </div>

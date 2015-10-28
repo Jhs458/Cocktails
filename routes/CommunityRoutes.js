@@ -36,6 +36,7 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+
 router.delete('/:id', function(req, res, next) {
   Community.remove({_id: req.params.id}, function(err, result) {
       if(err) {return next(err);}
@@ -43,6 +44,18 @@ router.delete('/:id', function(req, res, next) {
       res.send();
   });
 });
+
+
+router.put('/:id', function (req, res, next){
+  console.log(req.body)
+
+  Community.update({_id: req.params.id}, {$set: {name:req.body.name}}, function(err, result){
+  if (err) return next(err);
+  if (!result) return next ({err: "The community wasnt found for updating"});
+  res.send(result);
+  });
+});
+
 
 
 module.exports = router;

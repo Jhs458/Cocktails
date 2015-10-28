@@ -40,8 +40,28 @@ router.get('/:id', function(req, res, next){
     if(err) {return next(err);}
     if(!result) {return next({err: "Error finding recipe by community ID."});}
     res.send(result);
-  })
+  });
 });
 
+router.get('/edit/:id', function(req, res, next){
+  console.log("hey");
+  Recipe.findOne({_id: req.params.id}, function(err, result){
+    if(err) {return next(err);}
+    if(!result) {return next({err: "Error finding recipe by recipe ID."});}
+    res.send(result);
+  });
+});
+
+router.put('/', function (req, res, next) {
+  //Mongoose/Mongo method '.update' takes an object for the search as the first param
+  //The second param is an object which is the info to update with
+  // req.body.recipeEditted.id = req.body.recipeEditted._id;
+  Recipe.update({_id: req.body.recipeEditted._id}, req.body.recipeEditted, function (err, result) {
+    //Checks for both error cases: server error and no post found
+    if(err) return next(err);
+    if(!result) return next({err: "The post wasn't found for updating"});
+    res.send(result);
+  });
+});
 
 module.exports = router;
