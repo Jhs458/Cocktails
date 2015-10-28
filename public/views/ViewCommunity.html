@@ -3,14 +3,14 @@
 
   <div style="background-color: rgb(224, 224, 235)" layout="row">
     <div flex="11">
-      
+
     </div>
 
     <md-subheader flex style="background-color: rgb(224, 224, 235); text-align: center;" class="md-no-sticky">
     <h1 >Community for all things {{vm.communities.name}} related</h1>
     </md-subheader>
-    <md-button flex="3" type="button" style="text-align: right; min-width: 10px" ng-click="vm.deleteCommunity()">X</md-button>
-    <md-button flex="8" type="button" class="md-flat" ng-click='showEdit = true'> Edit </md-button>
+    <md-button flex="3" type="button" style="text-align: right; min-width: 10px" ng-click="vm.deleteCommunity()" ng-show ='nav.status.username;'>X</md-button>
+    <md-button flex="8" type="button" class="md-flat" ng-click='showEdit = true' ng-show ='nav.status.username;' > Edit </md-button>
 
   </div>
 

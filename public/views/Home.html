@@ -1,30 +1,30 @@
 <div ng-controller="HomeController as vm">
 
-  <div >
-  <md-subheader style="background-color: rgb(224, 224, 235); width: 100%" class="md-no-sticky"><h1>Search our Cocktail Communities:</h1></md-subheader>
+  <div>
+    <md-subheader style="background-color: rgb(224, 224, 235); width: 100%" class="md-no-sticky">
+      <h1>Search our Cocktail Communities:</h1>
+    </md-subheader>
   </div>
 
-<div  >
+  <div>
 
-  <md-grid-list
-    md-cols-gt-sm="6" md-cols-sm="6"
-    md-row-height-gt-md="1:1" md-row-height="5:3"
-    md-row-height="150px" style="margin: 16px"
-     md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px" >
+    <md-grid-list md-cols-gt-sm="6" md-cols-sm="6" md-row-height-gt-md="1:1" md-row-height="5:3" md-row-height="150px" style="margin: 16px" md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
 
 
-  <md-grid-tile ng-repeat="a in vm.communities" class="gridButton md-ink-ripple" ng-click="vm.goToCom(a._id)" style="background-color: {{a.color}};" >
-<!-- <a ng-click="vm.goToCom(a._id)"><i class="{{a.icon}}"></i></a> -->
-<i class="{{a.icon}}"></i>
-  <!-- <md-button type="button" class="md-primary" ng-click="vm.goToCom(a._id)"><i class="{{a.icon}}"></i></md-button> -->
-  <md-grid-tile-footer id="foot"><h3 id="fh">{{a.name}}</h3></md-grid-tile-footer>
-  </md-grid-tile>
+      <md-grid-tile ng-repeat="a in vm.communities" class="gridButton md-ink-ripple" ng-click="vm.goToCom(a._id)" style="background-color: {{a.color}};">
+        <!-- <a ng-click="vm.goToCom(a._id)"><i class="{{a.icon}}"></i></a> -->
+        <i class="{{a.icon}}"></i>
+        <!-- <md-button type="button" class="md-primary" ng-click="vm.goToCom(a._id)"><i class="{{a.icon}}"></i></md-button> -->
+        <md-grid-tile-footer id="foot">
+          <h3 id="fh">{{a.name}}</h3>
+        </md-grid-tile-footer>
+      </md-grid-tile>
 
 
 
-</md-grid-list>
+    </md-grid-list>
 
-</div>
+  </div>
 
 </div>
 
