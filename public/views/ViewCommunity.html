@@ -1,12 +1,17 @@
 <div ng-controller="ViewCommunityController as vm" ng-cloak>
   <md-content>
 
-    <div style="background-color: rgb(224, 224, 235)" layout="row">
+  <div style="background-color: rgb(224, 224, 235)" layout="row">
+    <div flex="11">
+      
+    </div>
+
     <md-subheader flex style="background-color: rgb(224, 224, 235); text-align: center;" class="md-no-sticky">
-    <h1>Community for all things {{vm.communities.name}} related</h1>
+    <h1 >Community for all things {{vm.communities.name}} related</h1>
+    </md-subheader>
     <md-button flex="3" type="button" style="text-align: right; min-width: 10px" ng-click="vm.deleteCommunity()">X</md-button>
     <md-button flex="8" type="button" class="md-flat" ng-click='showEdit = true'> Edit </md-button>
-    </md-subheader>
+
   </div>
 
   <form ng-init="editedCom = vm.getCopy(com);" ng-show="showEdit" class="container well" ng-submit="vm.editCom(editedCom); showEdit = false;">

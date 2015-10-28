@@ -30,14 +30,20 @@
 </div>
 
 
-      <md-input-container flex="30">
+      <md-input-container flex="30" layout-padding>
         <label>Colors:</label>
           <md-select ng-model="vm.community.color" >
             <md-option style="background-color: {{color}}" ng-repeat="color in vm.colors">{{color}}</md-option>
           </md-select>
       </md-input-container>
 
-  
+      <md-input-container flex="30" layout-padding>
+        <label>Icons:</label>
+          <md-select ng-model="vm.community.icon" >
+            <md-option ng-repeat="i in vm.icons"><i class="{{i}}"> {{i}}</i></md-option>
+          </md-select>
+      </md-input-container>
+
     </form>
 
 

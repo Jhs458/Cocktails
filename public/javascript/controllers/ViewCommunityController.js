@@ -7,6 +7,7 @@
 	function ViewCommunityController(CommunityFactory, $stateParams, $state) {
 		var vm = this;
 
+
 		if($stateParams.id){
 			CommunityFactory.getAllRecipes($stateParams.id).then(function(res) {
 			// if($stateParams.id == res[i].community){
