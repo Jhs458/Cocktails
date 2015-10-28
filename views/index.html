@@ -14,7 +14,7 @@
 
 		<section layout="row" flex layout-align="left" layout-wrap>
 			<md-button type="button" class="" ui-sref="Home"> Cocktail Community </md-button>
-			<md-button type="button" class="" ui-sref="AddCommunity" >Add a Community</md-button>
+			<md-button type="button" class="" ui-sref="AddCommunity" ng-show ='nav.status.username;'>Add a Community</md-button>
 		</section>
 
 		<section layout="row" flex layout-align="center top" layout-wrap>
@@ -28,6 +28,7 @@
 		</div>
 		</section>
 		<section layout="row" flex="14" layout-align="right" layout-wrap >
+			<md-button ui-sref="Profile({id: nav.status._id})" ng-show='nav.status.username;'> Welcome {{nav.status.username}} </md-button>
 			<md-button type='button' class="" ng-click='nav.logout()' ng-show='nav.status.username;'> Logout </md-button>
 			<md-button type='button' class="" ui-sref='RegLog' ng-show='!nav.status.username;'> Login/Register </md-button>
 		</section>
@@ -49,6 +50,7 @@
 	<script src="/javascript/services/HomeFactory.js"></script>	<!-- recipes -->
 	<script src="/javascript/services/CommunityFactory.js"></script>
 	<script src="/javascript/services/UserFactory.js"></script>
+	<script src="/javascript/services/AuthInterceptor.js"></script>
 	<!-- Controllers -->
 	<script src="/javascript/controllers/HomeController.js"></script>
 	<script src="/javascript/controllers/GlobalController.js"></script>
@@ -56,6 +58,8 @@
 	<script src="/javascript/controllers/AddCommunityController.js"></script>
 	<script src="/javascript/controllers/EditRecipeController.js"></script>
 	<script src="/javascript/controllers/ViewCommunityController.js"></script>
+	<script src="/javascript/controllers/ProfileController.js"></script>
+
 
 
 

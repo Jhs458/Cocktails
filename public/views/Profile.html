@@ -1,0 +1,23 @@
+<div ng-controller="ProfileController as vm">
+
+  <div >
+  <md-subheader style="background-color: rgb(224, 224, 235); width: 100%" class="md-no-sticky"><h1>{{nav.status.username}}'s Stuff</h1></md-subheader>
+  </div>
+
+
+  <div ng-repeat='c in vm.recipearray.communities' class="well container">
+    <ul>
+      <h2>Communites you have added:</h2>
+      <div  class="well container">
+        <div >
+      <li > {{c.name}} </li>
+    </div>
+    <h2>Recipes you have added:</h2>
+    <div ng-repeat='r in vm.recipearray.recipes'>
+  <li > {{r.name}} </li>
+</div>
+
+
+    </ul>
+  </div>
+</div>

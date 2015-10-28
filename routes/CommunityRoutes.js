@@ -3,6 +3,10 @@ var router = express.Router();
 var mongoose = require('mongoose');
 var Community = mongoose.model('Community');
 var jwt = require('express-jwt');
+var auth = jwt({
+  userProperty: "payload", //req.payload._id in the Route
+  secret: "CoderCamps" //matches the secret in model
+   });
 
 router.param('id', function(req, res, next, id) {
   Community.findOne({_id: id})
@@ -14,8 +18,9 @@ router.param('id', function(req, res, next, id) {
   });
 });
 
-router.post('/', function(req, res, next) {
+router.post('/', auth, function(req, res, next) {
   var community = new Community(req.body);
+  community.createdBy = req.payload._id;
   //community.created = new Date();   //should we have community created date?
   community.save(function(err, result) {
     res.send(result);
@@ -37,7 +42,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', auth, function(req, res, next) {
   Community.remove({_id: req.params.id}, function(err, result) {
       if(err) {return next(err);}
       // console.log(result);
@@ -46,16 +51,12 @@ router.delete('/:id', function(req, res, next) {
 });
 
 
-router.put('/:id', function (req, res, next){
-  console.log(req.body)
-
+router.put('/:id', auth, function (req, res, next){
   Community.update({_id: req.params.id}, {$set: {name:req.body.name}}, function(err, result){
   if (err) return next(err);
   if (!result) return next ({err: "The community wasnt found for updating"});
   res.send(result);
   });
 });
-
-
 
 module.exports = router;
