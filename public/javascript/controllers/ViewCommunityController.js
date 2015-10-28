@@ -26,8 +26,21 @@ if($stateParams.id){
 			console.log($stateParams.id);
 			$state.go('AddRecipe', {id:$stateParams.id});
 		// })
-	}
+	};
 
+	vm.getCopy = function(com) {
+		return angular.copy(com);
+	};
 
+	vm.editCom = function (comId, com) {
+			CommunityFactory.editCom({IDofComToEdit: comId, comEdited: com}).then(function (res) {
+				vm.editedCom = null;
+				if($stateParams.id){
+						CommunityFactory.getAllRecipes($stateParams.id).then(function(res) {
+							vm.recipes = res;
+						});
+				}
+				});
+};
 	}
 })();
