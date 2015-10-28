@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
+var Community = mongoose.model('Community');
+var Recipe = mongoose.model('Recipe');
+
 var passport = require('passport');
 
 router.post('/register', function(req, res, next) {
@@ -20,26 +23,24 @@ router.post('/login', function(req, res, next) {
   })(req, res, next);
 });
 
-router.get('/profile/:id', function(req, res, next){
-  Recipe.find({createdBy:req.params.id})
-  // .populate('createdBy', 'username')
-  .exec(function(err, result){
-    if(err) return next(err);
-    if(!result) return next('Could not find request');
-    res.send(result);
-  });
-});
 
 router.get('/profile/:id', function(req, res, next){
+  var sendBack ={};
   Community.find({createdBy:req.params.id})
-  // .populate('createdBy', 'username')
   .exec(function(err, result){
     if(err) return next(err);
     if(!result) return next('Could not find request');
-    res.send(result);
+    sendBack.communities = result;
+    
+  Recipe.find({createdBy:req.params.id})
+  .exec(function(err, result){
+    if(err) return next(err);
+    if(!result) return next('Could not find request');
+    sendBack.recipes = result;
+    res.send(sendBack);
   });
 });
 
-
+});
 
 module.exports = router;

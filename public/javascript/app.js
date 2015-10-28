@@ -28,11 +28,10 @@
 		.state('RegLog',{
 			url: '/reglog',
 			templateUrl: 'views/RegLog.html'
-		}).state('Profile',{
+		})
+		.state('Profile',{
 				url: '/profile/:id',
 				templateUrl: 'views/profile.html',
-				controller: 'ProfileController',
-				controllerAs: "vm"
 		});
 		$urlRouterProvider.otherwise('/');
 		$httpProvider.interceptors.push('AuthInterceptor');

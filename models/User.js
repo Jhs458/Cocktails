@@ -7,7 +7,9 @@ username: {required: true, unique: true, type: String, lowercase: true, trim: tr
 email: {required: true, unique: true, type:String, lowercase: true, trim: true},
 passwordHash: String,
 salt: String,
-recipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}]
+recipes: [{type: mongoose.Schema.Types.ObjectId, ref: 'Recipe'}],
+communities: [{type: mongoose.Schema.Types.ObjectId, ref: 'Community'}]
+
 });
 
 UserSchema.methods.setPassword = function(password) {

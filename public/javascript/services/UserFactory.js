@@ -82,23 +82,15 @@
 
     if (getToken()) setUser();
 
-    o.getCommunityByUser = function(id) {
+    o.getAllByUser = function(id) {
+			console.log("here");
       var q = $q.defer();
-      $http.get('/api/user/profile/' + id).then(function(res) {
+      $http.get('/api/users/profile/' + id).then(function(res) {
+				console.log(res);
         q.resolve(res.data);
       });
       return q.promise;
     };
-
-    o.getRecipeByUser = function(id) {
-      var q = $q.defer();
-      $http.get('/api/user/profile/' + id).then(function(res) {
-        q.resolve(res.data);
-      });
-      return q.promise;
-    };
-
-
 
     return o;
   }
