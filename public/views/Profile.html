@@ -4,19 +4,34 @@
   <md-subheader style="background-color: rgb(224, 224, 235); width: 100%" class="greyBar md-no-sticky"><h1>{{nav.status.username}}'s Stuff</h1></md-subheader>
   </div>
 
+<md-grid-list md-cols-gt-sm="2" md-cols-sm="2" md-row-height-gt-md="1:1" md-row-height="5:3" md-row-height="150px" style="margin: 30px" md-gutter-gt-md="40px" md-gutter-gt-sm="8px" md-gutter="4px">
 
-<div style="padding-left:40px; padding-top: 40px;">
- <h2>Communites you have added:</h2>
- <div ng-repeat='c in vm.recipearray.communities' class="well container">
-   <ul>
-     <li > {{c.name}} </li>
-   </ul>
- </div>
+  <md-grid-tile style="background-color:#b9f6ca;">
+    <md-grid-tile-header id="head">
+      <p class="tileHeader">Communities you have added</p>
+  </md-grid-tile-header>
+    <div layout="column" class="recipeBodyTile">
+      <div flex>
+        <ul ng-repeat="c in vm.recipearray.communities">
+          <li> - {{c.name}} </li>
+        </ul>
+      </div>
+    </div>
+  </md-grid-tile>
 
- <h2>Recipes you have added:</h2>
- <div ng-repeat='r in vm.recipearray.recipes'>
-   <ul>
-     <li > {{r.name}} </li>
-   </ul>
- </div>
+  <md-grid-tile style = "background-color:#b388ff;">
+    <md-grid-tile-header id="head">
+      <p class="tileHeader">Recipies you have added</p>
+  </md-grid-tile-header>
+    <div layout="column" class="recipeBodyTile">
+      <div flex>
+        <ul ng-repeat="r in vm.recipearray.recipes">
+          <li> - {{r.name}} </li>
+        </ul>
+      </div>
+    </div>
+  </md-grid-tile>
+
+</md-grid-list>
+
 </div>
