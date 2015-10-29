@@ -16,11 +16,8 @@
 		vm.goToCom = function(xid){
 			HomeFactory.goToCom(xid).then(function(res){
 				$state.go('ViewCommunity', {id:xid});
-			})
-		}
-
-
-
+			});
+		};
 
 
 	}
