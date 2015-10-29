@@ -9,16 +9,18 @@
 </head>
 
 <body ng-controller='GlobalController as nav' ng-cloak>
+<!-- padding : 15px; -->
+	<md-toolbar style=" background-color: #448aff"  layout="row">
 
-	<md-toolbar style="padding : 5px; background-color: deepskyblue"  layout="row">
-
-		<section layout="row" flex layout-align="left" layout-wrap>
-			<md-button type="button" class="" ui-sref="Home"> Cocktail Community </md-button>
-			<md-button type="button" class="" ui-sref="AddCommunity" ng-show ='nav.status.username;'>Add a Community</md-button>
+		<section layout="row" flex="35" layout-align="left" layout-wrap>
+			<div ui-sref="Home" class="homeButton"><h1 style="padding-left: 17px">Libation Nation</h1></div>
+			<!-- <md-button type="button" class="" ui-sref="AddCommunity" ng-show ='nav.status.username;'>Add a Community</md-button> -->
 		</section>
 
-		<section layout="row" flex layout-align="center top" layout-wrap style="position: absolute; left: 46%">
-			<div class="list-group">
+
+		<section layout="row" flex layout-align="center top" layout-wrap>
+			<div class="list-group" style="padding-top: 27px">
+
 <a class="list-group-item" href="https://www.facebook.com/pages/Cocktail/108043125883688?rf=110580302299152" target="_blank"><i class="zmdi zmdi-facebook zmdi-hc-fw"></i></a>
 <a class="list-group-item" href="https://instagram.com/cocktail_aficionado/" target="_blank"><i class="zmdi zmdi-instagram zmdi-hc-fw"></i></a>
 <a class="list-group-item" href="https://www.pinterest.com/AHLFM/cocktail-community-board/" target="_blank"><i class="zmdi zmdi-pinterest-box zmdi-hc-fw"></i></a>
@@ -27,7 +29,7 @@
 
 		</div>
 		</section>
-		<section layout="row" flex="14" layout-align="right" layout-wrap >
+		<section layout="row" flex="14" layout-align="right" layout-wrap style="padding : 15px">
 			<md-button ui-sref="Profile({id: nav.status._id})" ng-show='nav.status.username;'> Welcome {{nav.status.username}} </md-button>
 			<md-button type='button' class="" ng-click='nav.logout()' ng-show='nav.status.username;'> Logout </md-button>
 			<md-button type='button' class="" ui-sref='RegLog' ng-show='!nav.status.username;'> Login/Register </md-button>
