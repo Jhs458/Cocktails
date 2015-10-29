@@ -15,7 +15,7 @@
   text-align: center;
 }
 
-#head {
+.head {
   background: rgba(0, 0, 0, 0.68);
   font-size: 18px;
   height: 72px;
@@ -23,25 +23,17 @@
 }
 
 #comGrid md-grid-tile {
-
   height: 50px;
-
 }
 
 .recipeBodyTile {
 font-size: 16px;
 text-align: center;
-
 }
 
 .recipeBodyTile h4 {
   font-size: 20px;
   font-weight: 700;
-}
-.recipeIngredients {
-}
-
-.recipeInstructions {
 }
 
 .recipeBodyTile ul {
