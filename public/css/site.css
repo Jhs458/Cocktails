@@ -21,7 +21,7 @@
 }
 
 .list-group-item{
-  padding : 27px;
+  padding : 20px;
 }
 
 #foot {
@@ -88,11 +88,18 @@ md-grid-tile {
   padding: 9px 0px 9px 16px
 }
 
+a{
+  color:#fff;
+}
+a:visited{
+  color: #fff;
+}
+
 #addCom {
   color: white;
-  font-size: 50%;
+  font-size: 40%;
    position: absolute;
-   top: 38%;
+   top: 40%;
    left: 20%;
    width: 55%;
    letter-spacing: -1px;
