@@ -10,11 +10,7 @@
 		// vm.recipe.community = {};
 
     vm.createRecipe = function() {
-      // HomeFactory.postRecipe(vm.recipe).then(function(res) {
 				HomeFactory.postRecipe(vm.recipe, $stateParams.id).then(function(res) {
-				//populate community object in recipe schema
-				// vm.recipe.community.push(x)
-				// console.log($stateParams.id)
         $state.go('ViewCommunity', {id:$stateParams.id});
       }, function(res) {
         vm.recipe = res;
@@ -24,6 +20,8 @@
 		vm.goToViewCom = function(){
 				$state.go('ViewCommunity', {id:$stateParams.id});
 		};
+
+		vm.colors = ['#f5f5f5','#b9f6ca','#ff80ab','#ffff8d', '#84ffff', '#80d8ff', '#448aff' ,'#b388ff', '#8c9eff', '#ff8a80'];
 
 	}
 })();

@@ -7,6 +7,7 @@ var RecipeSchema = new mongoose.Schema({
    amount: String
  }],
  instructions: {required: true, type: String},
+ color: String,
  createdBy: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User'}],
  created: Date,
  community: {type: mongoose.Schema.Types.ObjectId, ref:'Community'}

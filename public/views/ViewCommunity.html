@@ -1,35 +1,75 @@
 <div ng-controller="ViewCommunityController as vm" ng-cloak>
   <md-content>
 
-  <div style="background-color: rgb(224, 224, 235)" layout="row">
-    <div flex="11">
+<div style="background-color: rgb(224, 224, 235)" layout="row">
+  <div flex="11"></div>
 
+  <md-subheader flex style="background-color: rgb(224, 224, 235); text-align: center;" class="greyBar md-no-sticky">
+  <h1 >{{vm.communities.name}} Community</h1>
+  </md-subheader>
+  <md-button flex="3" type="button" style="text-align: right; min-width: 10px" ng-click="vm.deleteCommunity()" ng-show ='nav.status.username;'>X</md-button>
+  <md-button flex="8" type="button" class="md-flat" ng-click='showEdit = true' ng-show ='nav.status.username;' > Edit </md-button>
     </div>
 
-    <md-subheader flex style="background-color: rgb(224, 224, 235); text-align: center;" class="md-no-sticky">
-    <h1 >Community for all things {{vm.communities.name}} related</h1>
-    </md-subheader>
-    <md-button flex="3" type="button" style="text-align: right; min-width: 10px" ng-click="vm.deleteCommunity()" ng-show ='nav.status.username;'>X</md-button>
-    <md-button flex="8" type="button" class="md-flat" ng-click='showEdit = true' ng-show ='nav.status.username;' > Edit </md-button>
+    <form ng-init="editedCom = vm.getCopy(com);" ng-show="showEdit" class="container well" ng-submit="vm.editCom(editedCom); showEdit = false;">
+      <md-input-container>
+        <label>{{vm.communities.name}}</label>
+        <input class="form-control" ng-model='editedCom.name' required>
+      </md-input-container>
+      <div style="text-align: center;">
+        <md-button type="submit" class="btn btn-success">Submit</md-button>
+        <md-button type="button" class="btn btn-danger" ng-click="showEdit = false;">Cancel</md-button>
+      </div>
+    </form>
 
-  </div>
+    <md-grid-list md-cols-gt-sm="2" md-cols-sm="2" md-row-height-gt-md="1:1" md-row-height="5:3" md-row-height="150px" style="margin: 30px" md-gutter-gt-md="40px" md-gutter-gt-sm="8px" md-gutter="4px">
 
-  <form ng-init="editedCom = vm.getCopy(com);" ng-show="showEdit" class="container well" ng-submit="vm.editCom(editedCom); showEdit = false;">
-    <md-input-container>
-      <label>{{vm.communities.name}}</label>
-      <input class="form-control" ng-model='editedCom.name' required>
-    </md-input-container>
+      <md-grid-tile class="gridButton md-ink-ripple" ng-click="vm.goToAddRecipe()" style="background-color: #ff8a80; color: white; text-align: center;">
+        Click to Add Recipe
+      </md-grid-tile>
+
+      <md-grid-tile ng-repeat="b in vm.recipes" style="background-color: {{b.color}};">
+        <md-grid-tile-header id="head">
+          <p class="tileHeader">{{b.name | uppercase}}</p>
+        </md-grid-tile-header>
+
+        <div layout="column" class="recipeBodyTile">
+          <div flex>
+            <h4>Ingredients:</h4>
+            <ul ng-repeat="c in b.ingredients">
+              <li>{{c.choice}} - {{c.amount}}</li>
+            </ul>
+          </div>
+          <div flex>
+            <h4>Instructions:</h4>
+            <p>{{b.instructions}}</p>
+          </div>
+        </div>
+
+        <!-- <div layout="column"  style="margin: auto;">
+        </div>
+        <div layout="column" style="margin: auto;">
+        </div> -->
+
+        <md-grid-tile-footer id="editDeleteGridFooter">
+        <div>
+        <md-button ng-click="vm.editRecipe(b._id)">Edit</md-button>
+        <md-button ng-click="vm.deleteRecipe(b)">Delete</md-button>
+        </div>
+        </md-grid-tile-footer>
 
 
-    <div style="text-align: center;">
-      <md-button type="submit" class="btn btn-success">Submit</md-button>
-      <md-button type="button" class="btn btn-danger" ng-click="showEdit = false;">Cancel</md-button>
-    </div>
-  </form>
+
+      </md-grid-tile>
+
+    </md-grid-list>
 
 
 
-    <div layout="row">
+
+
+
+    <!-- <div layout="row">
       <div layout-align="center center" flex="30" style="padding: 30px 0px 0px 100px;">
         <div id="recipeAdd">
           <h2>Have a Recipe to Contribute?</h2>
@@ -39,9 +79,9 @@
       </div>
 
       <div flex="10">
-      </div>
+      </div> -->
 
-      <div layout-align="center center" flex="60" style="padding: 30px">
+      <!-- <div layout-align="center center" flex="60" style="padding: 30px">
         <div id="recipeDisplay">
           <md-subheader style="background-color: rgb(224, 224, 235); text-align: center; width: 100%; font-size: 20px;" class="md-no-sticky"><h2>Recipes</h2></md-subheader>
 
@@ -77,7 +117,6 @@
             </md-list>
           </div>
         </div>
-      </div>
+      </div> -->
     </md-content>
   </div>
-</div>
