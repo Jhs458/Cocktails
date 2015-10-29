@@ -32,6 +32,13 @@
           <textarea ng-model="vm.recipe.instructions" columns="1" md-maxlength="1000"></textarea>
         </md-input-container>
 
+        <md-input-container flex="30" layout-padding>
+          <label>Colors:</label>
+            <md-select ng-model="vm.recipe.color" >
+              <md-option style="background-color: {{color}}" ng-repeat="color in vm.colors">{{color}}</md-option>
+            </md-select>
+        </md-input-container>
+
         <div style="text-align:center">
           <md-button type="submit" class="md-primary" ng-disabled="!(vm.recipe.ingredients.length >= 1) || !vm.recipe.name">Submit</md-button>
         </div>

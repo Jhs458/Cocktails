@@ -11,7 +11,7 @@
     <md-grid-list md-cols-gt-sm="6" md-cols-sm="6" md-row-height-gt-md="1:1" md-row-height="5:3" md-row-height="150px" style="margin: 16px" md-gutter-gt-md="16px" md-gutter-gt-sm="8px" md-gutter="4px">
 
 
-      <md-grid-tile ng-repeat="a in vm.communities" class="gridButton md-ink-ripple" ng-click="vm.goToCom(a._id)" style="background-color: {{a.color}};">
+      <md-grid-tile class="homeGridTile" ng-repeat="a in vm.communities" class="gridButton md-ink-ripple" ng-click="vm.goToCom(a._id)" style="background-color: {{a.color}};">
         <!-- <a ng-click="vm.goToCom(a._id)"><i class="{{a.icon}}"></i></a> -->
         <i class="{{a.icon}}"></i>
         <!-- <md-button type="button" class="md-primary" ng-click="vm.goToCom(a._id)"><i class="{{a.icon}}"></i></md-button> -->

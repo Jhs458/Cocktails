@@ -4,8 +4,9 @@
 	.controller('ViewCommunityController', ViewCommunityController);
 
 
-	function ViewCommunityController(CommunityFactory, $stateParams, $state) {
+	function ViewCommunityController(CommunityFactory, UserFactory, $stateParams, $state) {
 		var vm = this;
+		vm.status = UserFactory.status;
 
 
 		if($stateParams.id){
@@ -23,10 +24,12 @@
 	};
 
 	vm.goToAddRecipe = function(){
-		// HomeFactory.goToCom($stateParams.id).then(function(res){
-			//console.log($stateParams.id);
+		if(!vm.status.username) {
+			alert("You Must Be Logged In To Add Recipe!");
+			$state.go('RegLog');
+		} else{
 			$state.go('AddRecipe', {id:$stateParams.id});
-		// })
+	}
 	};
 
 if($stateParams.id){
@@ -38,8 +41,8 @@ if($stateParams.id){
 
 			vm.deleteCommunity = function(){
 				// console.log({id:$stateParams.id});
-				var response = prompt("Type confirm to delete community.")
-				if(response == "confirm"){
+				var response = confirm("Are You Sure You'd Like To Delete?");
+				if(response){
 					CommunityFactory.deleteCommunity({id:$stateParams.id}).then(function() {
 						// vm.communities.splice(vm.communities.indexOf(id), 1);
 							$state.go('Home');
@@ -49,7 +52,7 @@ if($stateParams.id){
 				// console.log('ViewCommunity', {id:$stateParams.id})
 				$state.go('ViewCommunity', {id:$stateParams.id});
 			}
-			}
+		};
 
 
 
