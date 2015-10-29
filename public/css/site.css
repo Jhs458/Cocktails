@@ -1,28 +1,55 @@
-#recipeAdd {
-  position: fixed;
-  text-align: center;
-  padding-top: 20px;
-  height: 200px;
-  width: 220px;
-  background-color: rgb(146, 146, 146);
-  color: white;
-  border-radius: 10px;
-  -moz-box-shadow:  0px 0px 14px 0px rgb(128,128,128);
-  -webkit-box-shadow:  0px 0px 14px 0px rgb(128,128,128);
-  box-shadow:  0px 0px 14px 0px rgb(128,128,128);
+#foot {
+  background: rgba(0, 0, 0, 0.68);
+  height: 36px;
+  border-radius: 0px 0px 25px 25px;
 }
 
-#recipeDisplay {
+#editDeleteGridFooter {
+  /*background: rgb(224, 224, 235);*/
+  background: rgba(0, 0, 0, 0.68);
+  border-radius: 0px 0px 25px 25px;
+  margin: auto;
+  padding-bottom: 18px;
+  font-weight: 700;
+  width: 100%;
   text-align: center;
-  border-radius: 10px;
-  -moz-box-shadow:  0px 0px 14px 0px rgb(128,128,128);
-  -webkit-box-shadow:  0px 0px 14px 0px rgb(128,128,128);
-  box-shadow:  0px 0px 14px 0px rgb(128,128,128);
 }
+
 
 .list-group-item{
   padding : 20px;
 }
+
+.head {
+  background: rgba(0, 0, 0, 0.68);
+  font-size: 18px;
+  height: 72px;
+  border-radius: 25px 25px 0px 0px;
+}
+
+#comGrid md-grid-tile {
+  height: 50px;
+}
+
+.recipeBodyTile {
+font-size: 16px;
+text-align: center;
+}
+
+.recipeBodyTile h4 {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.recipeBodyTile ul {
+  list-style-type: none;
+  padding-left: -50px;
+}
+
+md-grid-tile-header figcaption{
+  width: 100%;
+}
+
 
 #foot {
   background: rgba(0, 0, 0, 0.68);
@@ -36,6 +63,13 @@ md-grid-tile-footer figcaption{
 }
 
 #fh{
+  margin: 0;
+  font-weight: 700;
+  width: 100%;
+  text-align: center;
+}
+
+.tileHeader{
   margin: 0;
   font-weight: 700;
   width: 100%;
@@ -105,4 +139,8 @@ a:visited{
    letter-spacing: -1px;
    /*text-align: center;*/
   padding: 10px;
+}
+
+.userFont{
+  font-size: 100%;
 }

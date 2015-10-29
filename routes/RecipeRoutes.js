@@ -48,7 +48,6 @@ router.get('/:id', function(req, res, next){
 });
 
 router.get('/edit/:id', function(req, res, next){
-  console.log("hey");
   Recipe.findOne({_id: req.params.id}, function(err, result){
     if(err) {return next(err);}
     if(!result) {return next({err: "Error finding recipe by recipe ID."});}
