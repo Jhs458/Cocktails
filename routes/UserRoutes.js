@@ -31,7 +31,7 @@ router.get('/profile/:id', function(req, res, next){
     if(err) return next(err);
     if(!result) return next('Could not find request');
     sendBack.communities = result;
-    
+
   Recipe.find({createdBy:req.params.id})
   .exec(function(err, result){
     if(err) return next(err);

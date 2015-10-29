@@ -22,17 +22,31 @@
   border-radius: 25px 25px 0px 0px;
 }
 
+#comGrid md-grid-tile {
+
+  height: 50px;
+
+}
+
 .recipeBodyTile {
 font-size: 16px;
 text-align: center;
-overflow: hidden;
-/*display: block;*/
-/*position: absolute;*/
+
 }
 
-.recipeBodyTile li{
+.recipeBodyTile h4 {
+  font-size: 20px;
+  font-weight: 700;
+}
+.recipeIngredients {
+}
+
+.recipeInstructions {
+}
+
+.recipeBodyTile ul {
   list-style-type: none;
-  padding-left: -20px;
+  padding-left: -50px;
 }
 
 md-grid-tile-header figcaption{
