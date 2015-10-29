@@ -11,7 +11,8 @@
 
     vm.logout = function() {
       UserFactory.logout();
-    };
+        $state.go('Home');
+  };
 
     vm.register = function() {
       UserFactory.register(vm.user).then(function() {
