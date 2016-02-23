@@ -10,7 +10,15 @@ require('./models/CommunityModel');
 require('./models/User');
 require('./config/passport');
 
-mongoose.connect("mongodb://localhost/Cocktail");
+// mongoose.connect("mongodb://localhost/Cocktail");
+mongoose.connect('mongodb://jhs458:database1@ds013918.mongolab.com:13918/libation_nation', function (err) {
+	if (err){
+		return console.log("Error database");
+	}
+	else {
+		console.log("Connected to lab");
+	}
+});
 
 app.set('views', path.join(__dirname, 'views'));
 //set the view engine that will render HTML from the server to the client

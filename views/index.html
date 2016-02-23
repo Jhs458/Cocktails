@@ -30,7 +30,7 @@
 		</div>
 		</section>
 		<section layout="row" flex="14" layout-align="right" layout-wrap style="padding : 15px">
-			<md-button ui-sref="Profile({id: nav.status._id})" class="userFont" ng-show='nav.status.username;'> Welcome {{nav.status.username}} </md-button>
+			<md-button ui-sref="Profile({id: nav.status._id})" class="userFont" ng-show='nav.status.username;'> {{nav.status.username}} </md-button>
 			<md-button type='button' class="userFont" ng-click='nav.logout()' ng-show='nav.status.username;'> Logout </md-button>
 			<md-button type='button' class="userFont" ui-sref='RegLog' ng-show='!nav.status.username;'> Login/Register </md-button>
 		</section>
