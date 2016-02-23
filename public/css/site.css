@@ -144,3 +144,16 @@ a:visited{
 .userFont{
   font-size: 100%;
 }
+
+.social{
+  float: left;
+  position: absolute;
+  left: 36%;
+  top: 0;
+}
+
+.login{
+  position: absolute;
+  right: 0;
+  top: 12%;
+}
